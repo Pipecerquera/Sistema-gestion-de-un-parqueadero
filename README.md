@@ -1,1 +1,1 @@
-# Sistema-de-Gesti-n-de-Notas-de-Estudiantes
+# Sistema-de-Gestion-de-Notas
