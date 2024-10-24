@@ -1,0 +1,52 @@
+@startuml
+class Vehiculo {
+  -placa: String
+  -marca: String
+  -modelo: String
+  -color: String
+  -tipoVehiculo: String
+  +registrarEntrada()
+  +registrarSalida()
+}
+
+class EspacioParqueo {
+  -numeroEspacio: int
+  -estado: String
+  -tipoEspacio: String
+  +asignarEspacio()
+  +liberarEspacio()
+}
+
+class Ticket {
+  -numeroTicket: int
+  -horaEntrada: DateTime
+  -horaSalida: DateTime
+  -montoAPagar: float
+  +generarTicket()
+  +calcularPago()
+}
+
+class Usuario {
+  -nombre: String
+  -documentoIdentidad: String
+  -tipoUsuario: String
+  +login()
+  +gestionarSistema()
+}
+
+class SistemaDeParqueadero {
+  -nombreSistema: String
+  -ubicacion: String
+  +gestionarEntradas()
+  +gestionarSalidas()
+  +generarReporte()
+}
+
+Vehiculo --> EspacioParqueo : "ocupa"
+EspacioParqueo --> Ticket : "genera"
+Usuario --> Ticket : "puede tener"
+SistemaDeParqueadero --> Usuario : "administra"
+SistemaDeParqueadero --> Vehiculo : "gestiona"
+SistemaDeParqueadero --> EspacioParqueo : "gestiona"
+SistemaDeParqueadero --> Ticket : "gestiona"
+@enduml
