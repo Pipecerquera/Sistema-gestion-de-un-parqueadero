@@ -1,0 +1,16 @@
+@startuml
+title Diagrama de Paquetes
+
+package "Control de Usuarios" {
+  class Usuario
+  class Autenticacion
+}
+
+package "Control de Datos" {
+  class BaseDeDatos
+}
+
+Usuario --> Autenticacion
+Autenticacion --> BaseDeDatos
+
+@enduml

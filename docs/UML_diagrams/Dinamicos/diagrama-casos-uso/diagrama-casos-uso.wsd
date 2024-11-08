@@ -1,0 +1,11 @@
+@startuml
+title Diagrama de Casos de Uso
+
+actor Usuario
+usecase "Registrarse" as UC1
+usecase "Iniciar Sesión" as UC2
+
+Usuario --> UC1
+Usuario --> UC2
+
+@enduml

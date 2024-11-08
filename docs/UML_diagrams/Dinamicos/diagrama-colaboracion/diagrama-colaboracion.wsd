@@ -1,0 +1,5 @@
+@startuml
+Cliente -> Servidor: Solicitar Ticket
+Servidor -> BaseDeDatos: Consulta
+Servidor --> Cliente: Ticket Emitido
+@enduml
