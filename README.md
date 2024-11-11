@@ -1,4 +1,4 @@
-# Sistema-gestion-de-un-parqueadero
+# Sistema de Gestion de un parqueadero
 Este proyecto es una solución diseñada para facilitar la administración de un parqueadero mediante la digitalización y automatización de procesos clave como la gestión de espacios, reservas, pagos y configuración de usuarios. El sistema busca mejorar la experiencia de los usuarios, garantizar la seguridad de los datos y ofrecer una interfaz intuitiva para gestionar operaciones críticas.
 
 # Funcionalidades Clave
