@@ -1,0 +1,72 @@
+/* Estilos generales para el formulario */
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Botón con color personalizado */
+.btn-primary {
+  background-color: #7a1779 !important;
+  border-color: #7a1779 !important;
+}
+
+.btn-primary:hover {
+  background-color: #911590 !important;
+  border-color: #911590 !important;
+}
+
+/* Estilo para la tabla */
+.table {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.table th, .table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table img {
+  border-radius: 50%;
+}
+
+/* Estilo de la tabla para las filas */
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+
+/* Estilo para las acciones en la tabla */
+.btn-sm {
+  margin-right: 5px;
+}
+
+/* Estilos del encabezado de la tabla */
+.table-dark th {
+  background-color: #7a1779;
+  color: white;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Botón de "Agregar Usuario" */
+button.btn-primary {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  color: white;
+}
+
+/* Ajustes para el formulario de agregar usuario */
+input.form-control {
+  background-color: #f8f9fa;
+}
+
+input.form-control:focus {
+  border-color: #7a1779;
+}
+
+label.form-check-label {
+  color: #7a1779;
+}

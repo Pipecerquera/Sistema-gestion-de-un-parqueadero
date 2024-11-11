@@ -1,0 +1,1 @@
+Estos componentes se piensan para una versión escalable del aplicativo donde se pueden gestionar multiples parqueaderos de manera centralizada en este aplicativo web.

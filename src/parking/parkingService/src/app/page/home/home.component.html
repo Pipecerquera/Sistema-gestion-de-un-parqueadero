@@ -1,0 +1,73 @@
+<!-- Barra de Navegación -->
+<nav class="navbar">
+    <span class="navbar-brand">Parking</span>
+    
+
+    <div *ngIf="user" class="dropdown">
+        <button mat-button [matMenuTriggerFor]="userMenu">
+            <mat-icon class="user-icon">account_circle</mat-icon>
+            {{ user.nombre.split(' ')[0] }}
+        </button>
+        <mat-menu #userMenu="matMenu">
+            <button mat-menu-item routerLink="/profile">Perfil</button>
+            <button mat-menu-item routerLink="/configuracion">Configuración</button>
+            <button mat-menu-item (click)="logout()">Cerrar Sesión</button>
+        </mat-menu>
+
+        <!-- Botón "Ingresa" junto al dropdown -->
+        <button class="btn-ingreso" routerLink="/dashboard">
+            Ingresa <i class="bi bi-arrow-right"></i>
+        </button>
+    </div>
+
+    <button *ngIf="!user" class="login-button" routerLink="/auth">Iniciar Sesión</button>
+</nav>
+
+
+<!-- Sección Hero -->
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>Bienvenido a Tu Plataforma de Parqueo</h1>
+        <p>Encuentra y reserva el mejor espacio de parqueo en tu ciudad con facilidad.</p>
+        <button *ngIf="!user" (click)="navigateToAuth()" class="hero-button">Reserva Ahora</button>
+    </div>
+</section>
+
+<!-- Sección Acerca de -->
+<section class="about-section">
+    <h2>Acerca de Nosotros</h2>
+    <p>
+        Somos una plataforma dedicada a facilitar la búsqueda y reserva de espacios de parqueo en diferentes
+        localidades.
+        Nuestro objetivo es ofrecer un servicio seguro, eficiente y accesible para todos los usuarios.
+        Con una interfaz fácil de usar, puedes encontrar el parqueo ideal cerca de ti en pocos clics.
+    </p>
+    <h3>Nuestras Características</h3>
+    <ul>
+        <li>Reservas rápidas y sencillas.</li>
+        <li>Opciones de pago seguras y variadas.</li>
+        <li>Soporte al cliente disponible 24/7.</li>
+        <li>Acceso a promociones y descuentos exclusivos.</li>
+    </ul>
+</section>
+
+<!-- Sección Contacto -->
+<section class="contact-section">
+    <h2>Contáctanos</h2>
+    <p>
+        ¿Tienes preguntas, sugerencias o necesitas asistencia? ¡Nos encantaría saber de ti!
+        Puedes comunicarte con nosotros a través de los siguientes medios:
+    </p>
+    <ul>
+        <li><strong>Email:</strong> <a
+                href="mailto:contacto&#64;parqueosficticios.com">contacto&#64;parqueosficticios.com</a></li>
+        <li><strong>Teléfono:</strong> +1 (234) 567-890</li>
+        <li><strong>Dirección:</strong> Calle Ficticia 123, Ciudad, País</li>
+    </ul>
+    <p>También puedes seguirnos en nuestras redes sociales:</p>
+    <ul class="social-media">
+        <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+        <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+        <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+    </ul>
+</section>

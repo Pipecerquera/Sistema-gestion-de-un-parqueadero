@@ -1,0 +1,75 @@
+<div class="parking-container">
+    <h1 class="parking-title">Lista de Parqueaderos</h1>
+    <h6 class="parking-inter">Hola, Encuentra el mejor parking</h6>
+
+    <input type="text" placeholder="Buscar parqueadero..." [(ngModel)]="searchTerm" class="search-bar" />
+
+    <div class="parking-list">
+        <div class="parking-item" *ngFor="let parking of filteredParkings">
+            <div>
+                <h2>{{ parking.nombre }}</h2>
+                <div class="button-group">
+                    <button class="btn btn-primary" (click)="openReservaModal(parking)">Reservar</button>
+                    <button class="btn btn-detail" (click)="verMasDetalles(parking)">
+                        <i class="fa fa-eye" aria-hidden="true"></i> Ver Más Detalles
+                    </button>
+                </div>
+            </div>
+            <div>
+                <p>Capacidad: {{ parking.capacidadMaxima }} espacios</p>
+                <p>Disponible: {{ parking.capacidadMaxima - parking.ocupados }} espacios</p>
+            </div>
+            <iframe width="300" height="200" [src]="getMapUrl(parking.latitud, parking.longitud)" frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" [ngClass]="{'show': isModalOpen}" (click)="closeReservaModal()" *ngIf="isModalOpen"></div>
+<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isModalOpen}"
+    [style.display]="isModalOpen ? 'block' : 'none'">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ selectedParking?.nombre }}</h5>
+                <button type="button" class="close" (click)="closeReservaModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="text-muted mb-4">Realiza tu reserva de estacionamiento fácilmente, eligiendo el vehículo,
+                    espacio y las fechas de entrada y salida deseadas.</p>
+                <form (ngSubmit)="realizarReserva()">
+                    <div class="mb-3">
+                        <label for="vehiculo" class="form-label">Seleccionar Vehículo</label>
+                        <select id="vehiculo" class="form-select" [(ngModel)]="selectedVehiculoId" name="vehiculo"
+                            required>
+                            <option *ngFor="let vehiculo of vehiculos" [value]="vehiculo.id">
+                                {{ vehiculo.nombre }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechaEntrada" class="form-label">Fecha y Hora de Entrada</label>
+                        <input type="datetime-local" id="fechaEntrada" class="form-control" [(ngModel)]="fechaEntrada"
+                            name="fechaEntrada" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechaSalida" class="form-label">Fecha y Hora de Salida</label>
+                        <input type="datetime-local" id="fechaSalida" class="form-control" [(ngModel)]="fechaSalida"
+                            name="fechaSalida" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="espacio" class="form-label">Seleccionar Espacio</label>
+                        <select id="espacio" class="form-select" name="espacio" [(ngModel)]="selectedEspacioId"
+                            required>
+                            <option *ngFor="let espacio of espacios" [value]="espacio.id">
+                                {{ espacio.nombre }}
+                            </option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Reservar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="container">
+    <h2>Espacios de estacionamiento</h2>
+
+    <!-- Mostrar errores -->
+    <div *ngIf="error" class="alert alert-danger">
+        {{ error }}
+    </div>
+
+    <!-- Formulario para agregar un nuevo espacio -->
+    <form (ngSubmit)="addSpace()">
+        <div class="form-group">
+            <label for="relativeName">Nombre del espacio</label>
+            <input type="text" id="relativeName" [(ngModel)]="newSpace.relativeName" name="relativeName"
+                class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="isOccupied">¿Está ocupado?</label>
+            <input type="checkbox" id="isOccupied" [(ngModel)]="newSpace.isOccupied" name="isOccupied">
+        </div>
+
+        <div class="form-group">
+            <label for="isReserved">¿Está reservado?</label>
+            <input type="checkbox" id="isReserved" [(ngModel)]="newSpace.isReserved" name="isReserved">
+        </div>
+
+        <!-- Campo para seleccionar el tipo de vehículo -->
+        <div class="form-group">
+            <label for="tipoVehiculo">Tipo de vehículo</label>
+            <select id="tipoVehiculo" [(ngModel)]="newSpace.tipoVehiculo" name="tipoVehiculo" class="form-control"
+                required>
+                <option value="moto">Moto</option>
+                <option value="carro">Carro</option>
+                <option value="bus">Bus</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!newSpace.relativeName.trim()">Agregar
+            espacio</button>
+    </form>
+
+    <div *ngIf="loading">Cargando espacios...</div>
+
+    <!-- Listado de espacios -->
+    <div *ngIf="!loading">
+        <h3>Lista de Espacios</h3>
+        <ul class="list-group">
+            <li *ngFor="let space of spaces" class="list-group-item">
+                <div>
+                    <strong>{{ space.relativeName }}</strong><br>
+                    Estado: {{ space.isOccupied ? 'Ocupado' : 'Libre' }}<br>
+                    Reserva: {{ space.isReserved ? 'Reservado' : 'No reservado' }}<br>
+                    Tipo: {{ space.tipoVehiculo }}
+                </div>
+                <button (click)="deleteSpace(space.id)" class="btn btn-danger btn-sm btn-delete">Eliminar</button>
+            </li>
+        </ul>
+    </div>
+</div>

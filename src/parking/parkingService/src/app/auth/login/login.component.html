@@ -1,0 +1,64 @@
+<main>
+  <div class="login-container">
+    <h2 *ngIf="isLoginMode">Iniciar Sesión</h2>
+    <h2 *ngIf="!isLoginMode">Registrar Usuario</h2>
+    
+    <form #form="ngForm" (ngSubmit)="isLoginMode ? login(form) : register(form)">
+      <!-- Email -->
+      <div class="form-group"
+        [ngClass]="{'has-error': form.controls['email']?.invalid && form.controls['email']?.touched}">
+        <input type="email" name="email" ngModel required email placeholder="Email" class="form-control"
+          #email="ngModel">
+        <div *ngIf="email.invalid && email.touched" class="error-message">
+          <div *ngIf="email.errors?.['required']">Email es requerido.</div>
+          <div *ngIf="email.errors?.['email']">Formato de email no válido.</div>
+        </div>
+      </div>
+
+      <!-- Contraseña -->
+      <div class="form-group"
+        [ngClass]="{'has-error': form.controls['password']?.invalid && form.controls['password']?.touched}">
+        <input type="password" name="password" ngModel required minlength="6" placeholder="Contraseña" class="form-control"
+          #password="ngModel">
+        <div *ngIf="password.invalid && password.touched" class="error-message">
+          <div *ngIf="password.errors?.['required']">Contraseña es requerida.</div>
+          <div *ngIf="password.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</div>
+        </div>
+      </div>
+
+      <!-- Registro -->
+      <div *ngIf="!isLoginMode">
+        <!-- Nombre Completo -->
+        <div class="form-group"
+          [ngClass]="{'has-error': form.controls['fullname']?.invalid && form.controls['fullname']?.touched}">
+          <input type="text" name="fullname" ngModel required placeholder="Nombre Completo" class="form-control"
+            #fullname="ngModel">
+          <div *ngIf="fullname.invalid && fullname.touched" class="error-message">
+            Nombre completo es requerido.
+          </div>
+        </div>
+        
+        <!-- Ubicación -->
+        <div class="form-group"
+          [ngClass]="{'has-error': form.controls['locate']?.invalid && form.controls['locate']?.touched}">
+          <input type="text" name="locate" ngModel required placeholder="Ubicación" class="form-control"
+            #locate="ngModel">
+          <div *ngIf="locate.invalid && locate.touched" class="error-message">
+            Ubicación es requerida.
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="loading" class="btn btn-primary">
+        {{ isLoginMode ? 'Iniciar Sesión' : 'Registrar' }}
+      </button>
+
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </form>
+
+    <button (click)="toggleMode()" class="toggle-mode-btn">
+      {{ isLoginMode ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión' }}
+    </button>
+    <a routerLink="">Volver al inicio</a>
+  </div>
+</main>

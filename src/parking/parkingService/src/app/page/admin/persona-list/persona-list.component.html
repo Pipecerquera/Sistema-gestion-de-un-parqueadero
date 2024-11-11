@@ -1,0 +1,73 @@
+<h2 class="text-center my-4" style="color: #911590;">Lista de Personas</h2>
+<!-- 
+<div class="d-flex justify-content-center mb-3">
+    <button (click)="toggleAddUser()" class="btn btn-primary" style="background-color: #7a1779; border-color: #7a1779;">
+        Agregar Usuario
+    </button>
+</div>
+
+<div *ngIf="isAddingUser" class="form-container mb-4">
+    <form (ngSubmit)="addUser()" class="p-4 border rounded shadow-sm" style="background-color: #f8f9fa;">
+        <div class="mb-3">
+            <input type="text" [(ngModel)]="newUser.fullname" class="form-control" placeholder="Nombre Completo"
+                name="fullname" required />
+        </div>
+        <div class="mb-3">
+            <input type="email" [(ngModel)]="newUser.email" class="form-control" placeholder="Email" name="email"
+                required />
+        </div>
+        <div class="mb-3">
+            <input type="password" [(ngModel)]="newUser.password" class="form-control" placeholder="Contraseña"
+                name="password" required />
+        </div>
+        <div class="mb-3">
+            <input type="text" [(ngModel)]="newUser.locate" class="form-control" placeholder="Ubicación" name="locate"
+                required />
+        </div>
+        <div class="form-check mb-3">
+            <input type="checkbox" [(ngModel)]="newUser.notifications" class="form-check-input" name="notifications" />
+            <label class="form-check-label" for="notifications">Notificaciones</label>
+        </div>
+        <button type="submit" class="btn btn-success" style="background-color: #911590; border-color: #911590;">Guardar
+            Usuario</button>
+    </form>
+</div> -->
+
+<!-- Tabla de usuarios -->
+<div class="table-responsive">
+    <table class="table table-striped table-hover mt-4">
+        <thead class="table-dark">
+            <tr>
+                <th>Foto</th>
+                <th>Nombre Completo</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Ubicación</th>
+                <th>Último Inicio de Sesión</th>
+                <th>Creado</th>
+                <th>Actualizado</th>
+                <th>Estado</th>
+                <th>Notificaciones</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let persona of personas">
+                <td><img [src]="persona.photo" alt="Foto de {{ persona.fullname }}" width="50" class="rounded-circle">
+                </td>
+                <td>{{ persona.fullname }}</td>
+                <td>{{ persona.email }}</td>
+                <td>{{ persona.role }}</td>
+                <td>{{ persona.locate }}</td>
+                <td>{{ persona.last_login }}</td>
+                <td>{{ persona.created_at }}</td>
+                <td>{{ persona.updated_at }}</td>
+                <td>{{ persona.status ? 'Activo' : 'Inactivo' }}</td>
+                <td>{{ persona.notifications ? 'Sí' : 'No' }}</td>
+                <td>
+                    <button (click)="deleteUser(persona.id)" class="btn btn-danger btn-sm">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

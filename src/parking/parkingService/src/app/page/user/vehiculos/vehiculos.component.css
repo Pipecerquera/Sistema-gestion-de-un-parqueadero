@@ -1,0 +1,28 @@
+.container {
+  max-width: 900px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border: 2px solid #911590;
+}
+
+.table th {
+  text-align: center;
+}
+
+.btn-info {
+  background-color: #7a1779;
+  border-color: #7a1779;
+}
+
+.btn-danger {
+  background-color: #911590;
+  border-color: #911590;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

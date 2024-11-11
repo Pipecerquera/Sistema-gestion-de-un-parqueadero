@@ -1,0 +1,89 @@
+<div class="container profile-container mt-4">
+    <!-- Información del perfil -->
+    <div class="row profile-info">
+        <div class="col-md-12 text-center">
+            <img [src]="photo || 'https://via.placeholder.com/150'" class="profile-photo img-fluid rounded-circle" alt="Foto de Usuario">
+        </div>
+        <div class="col-md-12">
+            <h1 class="profile-name">{{ fullName }}</h1>
+            <p class="profile-email">{{ email }}</p>
+            <div class="d-flex flex-row justify-content-center align-items-center">
+                <p class="profile-role me-3"><span>Rol:</span> {{ role }}</p>
+                <p class="profile-location"><span>Ubicación:</span> {{ location }}</p>
+            </div>
+            <!-- Botón para abrir el modal de edición -->
+            <button (click)="openModal()" class="btn btn-primary">Editar Perfil</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Edición -->
+<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isModalOpen}" [style.display]="isModalOpen ? 'block' : 'none'">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Editar Perfil</h5>
+                <button type="button" class="close" (click)="closeModal()" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-section">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input [(ngModel)]="fullName" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Correo Electrónico</label>
+                        <input [(ngModel)]="email" type="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Cambiar Contraseña</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Ubicación</label>
+                        <input [(ngModel)]="location" type="text" class="form-control">
+                    </div>
+                    <div class="form-group form-check">
+                        <input [(ngModel)]="notifications" type="checkbox" class="form-check-input" id="notifications">
+                        <label class="form-check-label" for="notifications">Aceptar Notificaciones</label>
+                    </div>
+                    <!-- Campo para cargar una nueva foto -->
+                    <div class="form-group">
+                        <label>Subir Foto de Perfil</label>
+                        <input type="file" (change)="convertPhotoToBase64($event)" class="form-control">
+                    </div>
+                    <button (click)="saveProfile()" class="btn btn-success">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tabla de Reservas -->
+<div class="container reservations-container mt-4">
+    <h2>Tus Reservas</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Espacio</th>
+                <th>Fecha reserva</th>
+                <th>salida</th>
+                <th>Placa</th>
+                <th>T. Vehiculo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reservation of reservations">
+                <td>{{ reservation.id }}</td>
+                <td>{{ reservation.space.relativeName }}</td>
+                <td>{{ reservation.fechaReserva }}</td>
+                <td>{{ reservation.fechaSalida }}</td>
+                <td>{{ reservation.vehiculo.placa }}</td>
+                <td>{{ reservation.vehiculo.tipoVehiculo }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

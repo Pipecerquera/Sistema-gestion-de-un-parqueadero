@@ -1,0 +1,110 @@
+/* Estilos generales */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+/* Títulos */
+.header {
+    text-align: center;
+    color: #911590;  /* Color principal */
+}
+
+/* Formulario */
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.input-field,
+.checkbox {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+/* Botones */
+.btn {
+    background-color: #911590;  /* Color principal */
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #7a1779;  /* Color secundario */
+}
+
+/* Estilo para el botón de eliminar */
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: auto;  /* Cambiar de 'width: 100%' a 'width: auto' */
+    font-size: 14px;
+    text-align: center;
+}
+
+.btn-delete:hover {
+    background-color: #d32f2f;
+}
+
+/* Lista de espacios */
+.spaces-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.space-item {
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.list-group-item div {
+    flex: 1;  /* Esto asegura que la información del espacio ocupe el espacio disponible */
+}
+
+/* Mensajes de error */
+.error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Spinner de carga */
+.loading-spinner {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #911590;
+}

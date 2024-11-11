@@ -1,0 +1,105 @@
+/* Estilos Generales */
+h2 {
+  color: #911590;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+span {
+  font-size: 1.1rem;
+  color: #7a1779;
+}
+
+/* Contenedor de comentarios con scroll */
+.comment-section {
+  max-height: 500px;
+  overflow-y: auto;
+  /* Habilita el scroll */
+  margin-bottom: 30px;
+  padding-right: 10px;
+  /* Para no dejar el scroll pegado */
+}
+
+/* Estilos para cada comentario */
+.comment-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.comment-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+  border: #911590 solid 2px;
+}
+
+.comment-box {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.comment-author {
+  font-size: 1.2rem;
+  color: #911590;
+  font-weight: bold;
+  margin: 0;
+}
+
+.comment-text {
+  color: #555;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+/* Estilos para el formulario de nuevo comentario */
+.new-comment-container {
+  background-color: #f3f3f3;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.new-comment-container textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.new-comment-container button {
+  padding: 12px;
+  background-color: #911590;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.new-comment-container button:hover {
+  background-color: #7a1779;
+}
+
+.new-comment-container h3 {
+  color: #911590;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Mejorar accesibilidad y visibilidad */
+.comment-box h3 {
+  font-size: 1.2em;
+  color: #911590;
+  margin-bottom: 10px;
+}
+
+.comment-box p {
+  color: #7a1779;
+}
