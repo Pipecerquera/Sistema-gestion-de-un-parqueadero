@@ -11,4 +11,5 @@ Este proyecto es una solución diseñada para facilitar la administración de un
 - Cumplimiento de altos estándares de seguridad y disponibilidad.
 - Diseño escalable y adaptable para futuras ampliaciones.
 - Integración con mapas y notificaciones configurables para los usuarios.
+
 Este proyecto fue elaborado como parte del curso de Análisis de Sistemas en la Universidad CORHUILA, con la participación de un equipo multidisciplinario y validación de necesidades reales mediante técnicas de Design Thinking.
